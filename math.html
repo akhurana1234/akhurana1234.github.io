@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #000000;
+            color: #d1ff05;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 1em;
+        }
+
+        nav a {
+            margin-right: 1em;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <title>Math Puzzle</title>
+    <script>
+        function generatePuzzle() {
+            // Generate two random numbers between 1 and 10
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+
+            // Display the puzzle to the user
+            var question = "What is the sum of " + num1 + " and " + num2 + "?";
+            document.getElementById("puzzle-question").innerText = question;
+
+            // Store the correct answer in a data attribute
+            var correctAnswer = num1 + num2;
+            document.getElementById("answer-input").setAttribute("data-correct-answer", correctAnswer);
+        }
+
+        function checkAnswer() {
+            // Get the user's answer
+            var userAnswer = document.getElementById("answer-input").value;
+
+            // Get the correct answer from the data attribute
+            var correctAnswer = document.getElementById("answer-input").getAttribute("data-correct-answer");
+
+            // Check if the user's answer is correct
+            if (userAnswer == correctAnswer) {
+                alert("Correct! Well done!");
+            } else {
+                alert("Incorrect. Try again!");
+            }
+
+            // Generate a new puzzle
+            generatePuzzle();
+        }
+    </script>
+    </header>
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="math.html">Math</a>
+    </nav>
+
+    <section>
+
+        <section style="text-align: center;">
+            <h2>Math Puzzle</h2>
+            <p id="puzzle-question"></p>
+            <input type="text" id="answer-input" placeholder="Your Answer">
+            <button onclick="checkAnswer()">Check Answer</button>
+        </section>
+
+        <script>
+            // Generate the initial puzzle when the page loads
+            generatePuzzle();
+        </script>
+        
+    </section>
+
+    <footer>
+        &copy; Saddle River Day School Freshmen Year
+    </footer>
+</body>
+
+</html>
